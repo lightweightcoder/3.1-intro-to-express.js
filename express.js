@@ -15,9 +15,23 @@ const whenIncomingRequest = (request, response) => {
 
 // callback when a GET request is made to /dice-roll path
 const whenIncomingRequestForDiceRoll = (request, response) => {
+  console.log('request came in');
+
   const numberRolled = diceRoll();
 
   const output = `You rolled ${numberRolled} on a 6-sided dice!`;
+
+  response.send(output);
+};
+
+// callback when a GET request is made to /two-dice-roll path
+const whenIncomingRequestForTwoDiceRoll = (request, response) => {
+  console.log('request came in');
+
+  const firstNumberRolled = diceRoll();
+  const secondNumberRolled = diceRoll();
+
+  const output = `You rolled ${firstNumberRolled} and ${secondNumberRolled} on 2 6-sided dices!`;
 
   response.send(output);
 };
